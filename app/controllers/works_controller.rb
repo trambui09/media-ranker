@@ -7,14 +7,32 @@ class WorksController < ApplicationController
   end
 
   def show
+    @work = Work.find_by(id: params[:id])
 
+    if @work.nil?
+      head :not_found
+      return
+    end
   end
 
   def new
-
+    @work = Work.new
   end
 
   def create
+    @work = Work.new(work_params)
+
+    if @work.save
+      # need a flash message
+      # redirect to the work show page
+
+    else
+      # need a flash.now message
+      # render :new 
+
+
+    end
+
 
   end
 
@@ -28,5 +46,11 @@ class WorksController < ApplicationController
 
   def destroy
 
+  end
+
+  private
+
+  def work_params
+    return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
   end
 end
