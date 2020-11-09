@@ -1,6 +1,6 @@
 class Work < ApplicationRecord
 
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: true
 
   def work_category(category)
     works_in_category = Work.where(category: category)

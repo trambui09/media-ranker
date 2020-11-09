@@ -50,6 +50,20 @@ class WorksController < ApplicationController
   end
 
   def update
+    @work = Work.find_by(id: params[:id])
+
+    if @work.nil?
+      head :not_found
+      return
+    elsif @work.update(work_params)
+      # need a flash "Successfully updated book 675"
+      flash[:success] = "Succesfully updated #{@work.category} #{@work.id}"
+      redirect_to work_path(@work)
+      return
+    else # save failed
+      render :edit, status: :bad_request
+      return
+    end
 
   end
 
