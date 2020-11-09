@@ -37,7 +37,6 @@ jobs:
         env:
           PGHOST: localhost
           PGUSER: postgres
-          RAILS_ENV: test
         run: |
           rm *.lock
           gem install bundler
