@@ -25,12 +25,15 @@ class WorksController < ApplicationController
     if @work.save
       # need a flash message
       # redirect to the work show page
+      flash[:success] = "Successfully created #{@work.category} #{@work.id}"
+      # might need to edit where we redriect to
+      redirect_to work_path(@work)
 
     else
       # need a flash.now message
-      # render :new 
-
-
+      # render :new
+      flash.now[:error] = "Something happened, #{@work.category} was not added :("
+      render :new, status: :bad_request
     end
 
 

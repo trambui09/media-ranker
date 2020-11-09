@@ -10,6 +10,21 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+
+    </header>
+
+    <section>
+<!--      remember to update the class name-->
+      <div class="">
+        <% flash.each do |name, message| %>
+          <%= message %>
+        <% end %>
+      </div>
+    </section>
+
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
