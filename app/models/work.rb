@@ -7,4 +7,7 @@ class Work < ApplicationRecord
     return works_in_category
   end
 
+  # need a top 10
+  # need a method for spotlight for a work
+
 end
