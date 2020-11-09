@@ -1,8 +1,62 @@
 <h2>List of Works</h2>
-<ul>
-  <% @works.each do |work| %>
-    <li>
-      <%= work.title %>
-    </li>
+<!--<ul>-->
+  <%# @works.each do |work| %>
+<!--    <li>-->
+      <%#= link_to work.title, work_path(work) %>
+      <%#= work.category %>
+<!--    </li>-->
+  <%# end %>
+<!--</ul>-->
+
+<h2> Albums </h2>
+<table>
+  <thead>
+  <tr>
+    <th>Votes</th>
+    <th>Title</th>
+    <th>Created By</th>
+    <th>Published</th>
+    <th>Upvote</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @album_works.each do |work| %>
+    <tr>
+      <td><%= %></td>
+      <td><%= link_to work.title, work_path(work) %></td>
+      <td><%= work.creator %></td>
+      <td><%= work.publication_year %></td>
+      <td><button>Upvote</button></td>
+    </tr>
   <% end %>
-</ul>
+  </tbody>
+</table>
+
+<h2> Books </h2>
+<table>
+  <thead>
+  <tr>
+    <th>Votes</th>
+    <th>Title</th>
+    <th>Created By</th>
+    <th>Published</th>
+    <th>Upvote</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @book_works.each do |work| %>
+    <tr>
+      <td><%= %></td>
+      <td><%= link_to work.title, work_path(work) %></td>
+      <td><%= work.creator %></td>
+      <td><%= work.publication_year %></td>
+      <td><button>Upvote</button></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<!--how to order works by categories?-->
+<!--Can I make a view partial form to DRY up code -->
