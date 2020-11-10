@@ -1,1 +1,26 @@
-<h1>hi!</h1>
+<section class="spotlight">
+  <h2>
+    <span>Media Spotlight:</span>
+    <% @sample_work = Work.spotlight %>
+    <%= link_to "#{@sample_work.title}", work_path(@sample_work) %>
+    <%= "By: #{@sample_work.creator}" %>
+<!--    TODO: change after you've connected work to vote-->
+    <p><%= "0 Vote - #{@sample_work.description}" %></p>
+  </h2>
+
+</section>
+
+<section>
+  <section>
+    <h2>Top Movies</h2>
+
+  </section>
+  <section>
+    <h2>Top Books</h2>
+
+  </section>
+  <section>
+    <h2>Top Albums</h2>
+
+  </section>
+</section>

@@ -9,5 +9,8 @@ class Work < ApplicationRecord
 
   # need a top 10
   # need a method for spotlight for a work
+  def self.spotlight
+    return Work.all.sample
+  end
 
 end
