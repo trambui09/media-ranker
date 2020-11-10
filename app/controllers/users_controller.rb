@@ -1,4 +1,15 @@
 class UsersController < ApplicationController
+
+  def show
+    @user = User.find_by(username: params[:user][:username])
+
+    if @user.nil?
+      head :not_found
+      return
+    end
+  end
+
+
   def login_form
     @user = User.new
   end
@@ -37,4 +48,6 @@ class UsersController < ApplicationController
       return
     end
   end
+
+
 end
