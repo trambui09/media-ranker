@@ -25,5 +25,20 @@ describe Work do
       expect(@work.errors.messages[:title].include?("can't be blank")).must_equal true
     end
 
+    it "is invalid if the title already exists" do
+      # do we need the other fields?
+      Work.create(title: @work.title,
+                  category: @work.category,
+                  creator: @work.creator,
+                  publication_year: @work.publication_year,
+                  description: @work.description
+      )
+
+      expect(@work.valid?).must_equal false
+      expect(@work.errors.messages.include?(:title)).must_equal true
+      expect(@work.errors.messages[:title].include?("has already been taken")).must_equal true
+
+    end
+
   end
 end
