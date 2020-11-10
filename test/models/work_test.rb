@@ -80,7 +80,7 @@ describe Work do
     end
 
     describe "top ten" do
-      
+
     end
 
   end
