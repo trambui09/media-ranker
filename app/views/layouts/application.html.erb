@@ -11,6 +11,33 @@
 
   <body>
     <header>
+      <h1>
+<!--        TODO: change to root_path-->
+        <%= link_to "Media Ranker", works_path %>
+        <small>Ranking the Best of Everything</small>
+      </h1>
+      <nav>
+        <ul>
+          <li>
+            <%= link_to "View top media", works_path %>
+          </li>
+          <li>
+            <%= link_to "View all media", works_path %>
+          </li>
+          <li>
+            <%= link_to "Add a new work", new_work_path %>
+          </li>
+          <li>
+            <%= link_to "View all users" %>
+          </li>
+        </ul>
+
+        <ul>
+          <li>
+            <%= link_to "Log In" %>
+          </li>
+        </ul>
+      </nav>
 
     </header>
 
