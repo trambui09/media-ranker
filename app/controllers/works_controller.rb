@@ -77,8 +77,7 @@ class WorksController < ApplicationController
       @work.destroy
       # flash needed "Successfully destroyed album 736"
       flash[:success] = "Successfully destroyed #{@work.category} #{@work.id}"
-      # TODO: redirect to the root_path
-      redirect_to works_path
+      redirect_to root_path
     end
 
   end
