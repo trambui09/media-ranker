@@ -1,5 +1,5 @@
 <% if @work.errors.any? %>
-  <p> A problem occurred: Could not create <%= @work.category %></p>
+  <p> A problem occurred: Could not <%= "#{action_name} #{@work.category}" %></p>
   <ul>
     <% @work.errors.each do |column, message| %>
       <li>
@@ -34,7 +34,7 @@
       <%= f.text_area :description%>
     </div>
     <div>
-      <%= f.submit "#{action_name} Work" %>
+      <%= f.submit "#{action_name.capitalize} Work" %>
     </div>
   </section>
 <% end %>

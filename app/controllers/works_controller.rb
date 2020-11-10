@@ -32,7 +32,7 @@ class WorksController < ApplicationController
     else
       # need a flash.now message
       # render :new
-      flash.now[:error] = "Something happened, #{@work.category} was not added :("
+      # flash.now[:error] = "Something happened, #{@work.category} was not added :("
       render :new, status: :bad_request
     end
 
@@ -68,6 +68,18 @@ class WorksController < ApplicationController
   end
 
   def destroy
+    @work = Work.find_by(id: params[:id])
+
+    if @work.nil?
+      head :not_found
+      return
+    else
+      @work.destroy
+      # flash needed "Successfully destroyed album 736"
+      flash[:success] = "Successfully destroyed #{@work.category} #{@work.id}"
+      # TODO: redirect to the root_path
+      redirect_to works_path
+    end
 
   end
 
