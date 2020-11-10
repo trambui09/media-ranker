@@ -1,2 +1,10 @@
-<h1>Users#login_form</h1>
-<p>Find me in app/views/users/login_form.html.erb</p>
+<%= form_with model: @user, url: login_path do |f| %>
+  <div>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </div>
+
+  <%= f.submit "Log in"%>
+
+<% end %>
+
