@@ -4,6 +4,9 @@ describe Vote do
   # it "does a thing" do
   #   value(1+1).must_equal 2
   # end
+  describe "validations" do
+
+  end
   describe "relations" do
     # it "has a work" do
     #
