@@ -7,7 +7,7 @@
   <section>
     <%= link_to "Back to media ranks" %>
     <%= link_to "Edit", edit_work_path %>
-    <%= link_to "Upvote" %>
+    <%= link_to "Upvote", upvote_work_path(@work), method: :post %>
     <%= link_to "Delete", work_path(@work), method: :delete, data: {confirm: "Are you sure?~~"} %>
 
   </section>

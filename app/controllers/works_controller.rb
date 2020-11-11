@@ -4,6 +4,7 @@ class WorksController < ApplicationController
     @works = Work.all.order(:category)
     @album_works = Work.where(category: 'album')
     @book_works = Work.where(category: 'book')
+    @movie_works = Work.where(category: 'movie')
   end
 
   def show
@@ -78,6 +79,32 @@ class WorksController < ApplicationController
       # flash needed "Successfully destroyed album 736"
       flash[:success] = "Successfully destroyed #{@work.category} #{@work.id}"
       redirect_to root_path
+    end
+
+  end
+
+  def upvote
+    # @work = Work.find_by(id: params[:id])
+    # @work.votes.create
+    # redirect_to works_path
+    user = User.find_by(id: session[:user_id])
+
+    if user.nil?
+      flash[:error] = "A problem occured: You must log in to do that"
+      redirect_to works_path
+      return
+    end
+
+    vote = Vote.new(user_id: user.id, work_id: params[:id])
+
+    if vote.save
+      flash[:success] = "Successfully upvoted"
+      redirect_to works_path
+      return
+    else
+      flash[:error] = "A problem occurred: Could not upvote"
+      flash[:error_messages] = vote.errors.messages
+      redirect_to works_path
     end
 
   end
