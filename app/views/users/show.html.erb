@@ -1,3 +1,33 @@
 <h2>User Summary: <%= link_to @user.username, user_path(@user) %></h2>
 <!--TODO: turning created_at datetime into string-->
 <p>Joined site <%= @user.created_at.strftime('%b %d, %Y') %></p>
+
+<h3>Votes</h3>
+
+<table>
+  <thead>
+  <tr>
+    <th>Media Title</th>
+    <th>Created By</th>
+    <th>Published</th>
+    <th>Category</th>
+    <th>Voted On</th>
+  </tr>
+  </thead>
+
+  <tbody>
+<!--  TODO: Changed based on the votes-->
+  <%# @album_works.each do |work| %>
+    <tr>
+      <td><%= %></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  <%# end %>
+  </tbody>
+</table>
+
+<%= link_to "See all Users", users_path %>
+<%= link_to "Back to Media List", root_path %>
