@@ -59,11 +59,11 @@ describe Work do
   describe "relations" do
     before do
       new_work.save
-      new_user = users(:miso)
-      second_user = users(:tram)
+      @new_user = users(:miso)
+      @second_user = users(:tram)
 
-      vote_1 = Vote.create(user_id: new_user.id, work_id: new_work.id)
-      vote_2 = Vote.create(user_id: second_user.id, work_id: new_work.id)
+      Vote.create(user_id: @new_user.id, work_id: new_work.id)
+      Vote.create(user_id: @second_user.id, work_id: new_work.id)
     end
     it "can have many votes" do
       # Assert
@@ -72,6 +72,8 @@ describe Work do
       new_work.votes.each do |vote|
         expect(vote).must_be_instance_of Vote
       end
+
+      expect(new_work.votes.first.user_id).must_equal @new_user.id
 
     end
 
@@ -82,6 +84,10 @@ describe Work do
       new_work.users.each do |user|
         expect(user).must_be_instance_of User
       end
+
+      expect(new_work.users.first.username).must_equal @new_user.username
+
+
 
     end
   end
