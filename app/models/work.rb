@@ -5,10 +5,10 @@ class Work < ApplicationRecord
   has_many :votes
   has_many :users, through: :votes
 
-  def work_category(category)
-    works_in_category = Work.where(category: category)
-    return works_in_category
-  end
+  # def work_category(category)
+  #   works_in_category = Work.where(category: category)
+  #   return works_in_category
+  # end
 
   # need a top 10
   # need a method for spotlight for a work

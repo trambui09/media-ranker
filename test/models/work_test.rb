@@ -121,13 +121,24 @@ describe Work do
       end
     end
 
-    describe "works_in_category" do
-
-    end
 
     describe "top ten" do
 
     end
 
+    describe "date_voted_on" do
+
+      it "returns the the date of when the work was voted" do
+        # Arrange
+        new_work.save
+        user = users(:miso)
+        vote_1 = Vote.create(user_id: user.id, work_id: new_work.id )
+
+        # act and assert
+        expect(new_work.date_voted_on).must_equal vote_1.created_at.strftime('%b %d, %Y')
+
+      end
+
+    end
   end
 end
