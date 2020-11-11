@@ -43,6 +43,13 @@ describe Work do
   end
 
   describe "relations" do
+    it "can have many votes" do
+
+    end
+
+    it "can have many users through votes" do
+
+    end
 
   end
 
