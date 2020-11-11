@@ -28,7 +28,7 @@
             <%= link_to "Add a new work", new_work_path %>
           </li>
           <li>
-            <%= link_to "View all users" %>
+            <%= link_to "View all users", users_path %>
           </li>
         </ul>
 
@@ -36,7 +36,7 @@
 <!--          if there is a session id, present a log out buttong and button to take them to the user show page-->
           <% if session[:user_id] %>
 <!--            <li>-->
-              <%#= link_to "Logged in as", user_path{@user.id} %>
+              <%#= link_to "Logged in as #{@user}", user_path(@user.id) %>
 <!--            </li>-->
             <li>
               <%= link_to "Log Out", logout_path, method: :post %>

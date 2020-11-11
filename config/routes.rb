@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  resources :users, only: [:show]
+  resources :users, only: [:index, :show]
   # get '/user/'
   get '/login', to: "users#login_form", as: "login"
   post '/login', to: "users#login"
-  # TODO: check if I get the get route for logout
-  # get '/logout', to: "users#logout", as: "logout"
+  # TODO: check if I get the get route for logout, I forgot the method post haha
   post '/logout', to: "users#logout", as: "logout"
   get '/users/current', to: "users#current", as: "current_user"
 
