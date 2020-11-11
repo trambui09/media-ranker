@@ -22,4 +22,9 @@ class Work < ApplicationRecord
     return Work.where(category: category).sample(10)
   end
 
+  def date_voted_on
+    vote = Vote.find_by(work_id: self.id )
+    return vote.created_at.strftime('%b %d, %Y')
+  end
+
 end

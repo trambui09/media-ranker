@@ -2,7 +2,7 @@
 <!--TODO: turning created_at datetime into string-->
 <p>Joined site <%= @user.created_at.strftime('%b %d, %Y') %></p>
 
-<h3>Votes</h3>
+<h3><%= "#{@user.votes.count } Votes" %></h3>
 
 <table>
   <thead>
@@ -17,15 +17,15 @@
 
   <tbody>
 <!--  TODO: Changed based on the votes-->
-  <%# @album_works.each do |work| %>
+  <% @user.works.each do |work| %>
     <tr>
-      <td><%= %></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td><%= link_to work.title, work_path(work) %></td>
+      <td><%= work.creator %></td>
+      <td><%= work.publication_year %></td>
+      <td><%=  work.category.capitalize %></td>
+      <td><%=  work.date_voted_on %></td>
     </tr>
-  <%# end %>
+  <% end %>
   </tbody>
 </table>
 

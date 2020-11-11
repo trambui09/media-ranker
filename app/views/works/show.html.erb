@@ -27,7 +27,7 @@
     <% @work.users.each do |user| %>
       <tr>
         <td><%= link_to user.username, user_path(user) %></td>
-        <td><%= user.created_at.strftime('%b %d, %Y') %></td>
+        <td><%= @work.date_voted_on %></td>
       </tr>
     <% end %>
     </tbody>
