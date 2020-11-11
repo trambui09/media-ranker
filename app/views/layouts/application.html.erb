@@ -35,15 +35,16 @@
         <ul>
 <!--          if there is a session id, present a log out buttong and button to take them to the user show page-->
           <% if session[:user_id] %>
-<!--            <li>-->
-              <%#= link_to "Logged in as #{@user}", user_path(@user.id) %>
-<!--            </li>-->
+            <% @user = User.find_by(id: session[:user_id]) %>
             <li>
-              <%= link_to "Log Out", logout_path, method: :post %>
+              <button><%= link_to "Logged in as #{@user.username}", user_path(@user.id) %></button>
+            </li>
+            <li>
+              <button><%= link_to "Log Out", logout_path, method: :post %></button>
             </li>
           <% else %>
             <li>
-              <%= link_to "Log In", login_path %>
+              <button><%= link_to "Log In", login_path %></button>
             </li>
           <% end %>
         </ul>

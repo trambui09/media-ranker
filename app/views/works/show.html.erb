@@ -5,10 +5,10 @@
   <p></p>
 
   <section>
-    <%= link_to "Back to media ranks" %>
-    <%= link_to "Edit", edit_work_path %>
-    <%= link_to "Upvote", upvote_work_path(@work), method: :post %>
-    <%= link_to "Delete", work_path(@work), method: :delete, data: {confirm: "Are you sure?~~"} %>
+    <button> <%= link_to "Back to media ranks" %></button>
+    <button><%= link_to "Edit", edit_work_path %></button>
+    <button><%= link_to "Upvote", upvote_work_path(@work), method: :post %></button>
+    <button><%= link_to "Delete", work_path(@work), method: :delete, data: {confirm: "Are you sure?~~"} %></button>
 
   </section>
 </section>
