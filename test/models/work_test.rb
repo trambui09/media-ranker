@@ -42,9 +42,9 @@ describe Work do
 
   end
 
-  # describe "relations" do
-  #
-  # end
+  describe "relations" do
+
+  end
 
   describe "custom methods" do
     # TODO: not sure how I'd test for random?
