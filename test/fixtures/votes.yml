@@ -1,5 +1,9 @@
 # TODO: not sure how I'd write this
 
 first:
-  work_id: cowboy
-  user_id: tram
+  work_id: cowboy.id
+  user_id: tram.id
+
+second:
+  work_id: undocumented.id
+  user_id: miso.id

@@ -10,7 +10,18 @@ describe Work do
              category: "album",
              publication_year: 2020,
              description: "testing description")
+    # TODO: check if works.yml would work here?
+    # works(:undocumented)
   }
+
+  it "responds to the fields" do
+    new_work.save
+    work = Work.first
+
+    [:title, :category, :creator, :publication_year, :description].each do |field|
+      expect(work).must_respond_to field
+    end
+  end
   describe "validations" do
     # before do
     #   @work = Work.new(category: "book",
@@ -46,15 +57,33 @@ describe Work do
   end
 
   describe "relations" do
-    it "can have many votes" do
+    before do
+      new_work.save
+      new_user = users(:miso)
+      second_user = users(:tram)
 
+      vote_1 = Vote.create(user_id: new_user.id, work_id: new_work.id)
+      vote_2 = Vote.create(user_id: second_user.id, work_id: new_work.id)
+    end
+    it "can have many votes" do
+      # Assert
+      expect(new_work.votes.count).must_equal 2
+
+      new_work.votes.each do |vote|
+        expect(vote).must_be_instance_of Vote
+      end
 
     end
 
     it "can have many users through votes" do
 
-    end
+      expect(new_work.users.count).must_equal 2
 
+      new_work.users.each do |user|
+        expect(user).must_be_instance_of User
+      end
+
+    end
   end
 
   describe "custom methods" do
