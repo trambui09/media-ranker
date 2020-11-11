@@ -19,7 +19,8 @@ class Work < ApplicationRecord
   end
 
   def self.top_ten(category)
-    return Work.where(category: category).sample(10)
+    # return Work.where(category: category).sample(10)
+    return Work.where(category: category).sort_by { |album| album.votes.count }.reverse[0..9]
   end
 
   def date_voted_on

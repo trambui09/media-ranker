@@ -36,16 +36,16 @@
   </section>
   <section>
     <h2>Top Books</h2>
-    <% @top_ten_albums = Work.top_ten("book")  %>
+    <% @top_ten_books = Work.top_ten("book")  %>
     <ul>
-      <% @top_ten_albums.each do |album| %>
+      <% @top_ten_books.each do |book| %>
         <li>
           <h4>
-            <%= link_to album.title, work_path(album) %>
-            <small><%= "By: #{album.creator}" %></small>
+            <%= link_to book.title, work_path(book) %>
+            <small><%= "By: #{book.creator}" %></small>
           </h4>
           <!--          TODO: replace once there's a connection-->
-          <p><%= "#{rand(0..30)} votes" %></p>
+          <p><%= "#{book.votes.count} votes" %></p>
         </li>
       <% end %>
     </ul>
@@ -62,7 +62,7 @@
             <small><%= "By: #{album.creator}" %></small>
           </h4>
 <!--          TODO: replace once there's a connection-->
-          <p><%= "#{rand(0..30)} votes" %></p>
+          <p><%= "#{album.votes.count} votes" %></p>
         </li>
       <% end %>
     </ul>
