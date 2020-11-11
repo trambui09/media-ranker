@@ -39,7 +39,7 @@
               <%#= link_to "Logged in as", user_path{@user.id} %>
 <!--            </li>-->
             <li>
-              <%= link_to "Log Out", logout_path %>
+              <%= link_to "Log Out", logout_path, method: :post %>
             </li>
           <% else %>
             <li>
