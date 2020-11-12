@@ -3,7 +3,30 @@
 first:
   work_id: cowboy.id
   user_id: tram.id
-
 second:
   work_id: undocumented.id
   user_id: miso.id
+third:
+  work_id: cowboy.id
+  user_id: emma.id
+fourth:
+  work_id: cowboy.id
+  user_id: cat.id
+five:
+  work_id: undocumented.id
+  user_id: bella.id
+six:
+  work_id: album_6.id
+  user_id: emma.id
+seven:
+  work_id: album_7.id
+  user_id: cat.id
+eight:
+  work_id: album_9.id
+  user_id: miso.id
+nine:
+  work_id: album_4.id
+  user_id: tram.id
+ten:
+  work_id: album_4.id
+  user_id: emma.id
