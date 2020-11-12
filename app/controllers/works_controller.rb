@@ -6,7 +6,7 @@ class WorksController < ApplicationController
     @book_works = Work.where(category: 'book')
     @movie_works = Work.where(category: 'movie')
   end
-  
+
   def show
     @work = Work.find_by(id: params[:id])
 
