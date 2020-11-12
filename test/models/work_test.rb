@@ -139,11 +139,34 @@ describe Work do
 
       end
 
+      it "returns the votes from most to least votes" do
+        top_albums = Work.top_ten("album")
+
+        expect(top_albums.first).must_equal works(:cowboy)
+        expect(top_albums.first.votes.count).must_equal 3
+
+        expect(top_albums.last.votes.count).must_equal 0
+        
+      end
+
       it "returns empty array if category has no works " do
         no_movies_top_ten = Work.top_ten("movie")
 
         expect(no_movies_top_ten).must_equal []
 
+      end
+
+      it "returns all works if there are fewer than 10 works, in the right order" do
+        top_books = Work.top_ten("book")
+
+        expect(top_books.count).must_equal 2
+        top_books.each do |book|
+          expect(book).must_be_instance_of Work
+          expect(book.category).must_equal "book"
+        end
+
+        expect(top_books.first).must_equal works(:undocumented)
+        expect(top_books.first.votes.count).must_equal 3
       end
 
     end
