@@ -8,7 +8,7 @@
     <%= link_to "#{@sample_work.title}", work_path(@sample_work) %>
     <%= "By: #{@sample_work.creator}" %>
 <!--    TODO: change after you've connected work to vote-->
-    <p><%= "0 Vote - #{@sample_work.description}" %></p>
+    <p><%= "#{@sample_work.votes.count} Votes - #{@sample_work.description}" %></p>
   </h2>
 
 </section>
@@ -28,7 +28,7 @@
             <small><%= "By: #{album.creator}" %></small>
           </h4>
           <!--          TODO: replace once there's a connection-->
-          <p><%= "#{rand(0..30)} votes" %></p>
+          <p><%= "#{album.votes.count} votes" %></p>
         </li>
       <% end %>
     </ul>
