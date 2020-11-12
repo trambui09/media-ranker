@@ -122,6 +122,21 @@ describe Work do
         expect(top_work).must_equal highest_voted_work
 
       end
+
+      it "if it's tied, it returns the work most recently voted" do
+        expect(works(:cowboy).votes.count).must_equal works(:undocumented).votes.count
+
+        
+        Vote.create!(user: users(:miso), work: works(:cowboy))
+        sleep(1)
+        Vote.create!(user: users(:tram), work: works(:undocumented))
+
+        top_work = Work.spotlight
+
+        expect(top_work).must_be_instance_of Work
+        expect(top_work).must_equal works(:undocumented)
+
+      end
     end
 
     # TODO: how can I test the top ten category?

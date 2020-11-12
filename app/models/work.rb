@@ -11,10 +11,29 @@ class Work < ApplicationRecord
   # end
 
   # For top-10 or spotlight, what if there are less than 10 works? What if there are no works?
-  # TODO: fix spotlight based on vote
+  # TODO: fix spotlight based on vote, and if it's a tie, return the recent vote
   def self.spotlight
     # return Work.all.sample
-    return Work.all.sort_by { |work | work.votes.count }.reverse[0]
+    max_votes = Work.all.max_by {|work| work.votes.count}.votes.count
+    works_with_max_votes = Work.all.select {|work| work.votes.count == max_votes}
+    # sort_by vote_id
+
+    max_id = 0
+    work_with_high_vote_id = []
+    works_with_max_votes.each do |work|
+      work.votes.each do |vote|
+        if vote.id > max_id
+          max_id = vote.id
+          work_with_high_vote_id << work
+        end
+      end
+    end
+
+    return work_with_high_vote_id.last
+
+
+
+    # return Work.all.sort_by { |work | work.votes.count }.max
   end
 
   def self.top_ten(category)
