@@ -1,32 +1,35 @@
 # TODO: not sure how I'd write this
 
 first:
-  work_id: cowboy.id
-  user_id: tram.id
+  work: cowboy
+  user: tram
 second:
-  work_id: undocumented.id
-  user_id: miso.id
+  work: undocumented
+  user: miso
 third:
-  work_id: cowboy.id
-  user_id: emma.id
+  work: cowboy
+  user: emma
 fourth:
-  work_id: cowboy.id
-  user_id: cat.id
+  work: cowboy
+  user: cat
 five:
-  work_id: undocumented.id
-  user_id: bella.id
+  work: undocumented
+  user: bella
 six:
-  work_id: album_6.id
-  user_id: emma.id
+  work: album_6
+  user: emma
 seven:
-  work_id: album_7.id
-  user_id: cat.id
+  work: album_7
+  user: cat
 eight:
-  work_id: album_9.id
-  user_id: miso.id
+  work: album_9
+  user: miso
 nine:
-  work_id: album_4.id
-  user_id: tram.id
+  work: album_4
+  user: tram
 ten:
-  work_id: album_4.id
-  user_id: emma.id
+  work: album_4
+  user: emma
+eleven:
+  work: undocumented
+  user: miso

@@ -13,7 +13,8 @@ class Work < ApplicationRecord
   # For top-10 or spotlight, what if there are less than 10 works? What if there are no works?
   # TODO: fix spotlight based on vote
   def self.spotlight
-    return Work.all.sample
+    # return Work.all.sample
+    return Work.all.sort_by { |work | work.votes.count }.reverse[0]
   end
 
   def self.top_ten(category)

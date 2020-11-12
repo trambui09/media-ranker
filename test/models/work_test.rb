@@ -93,29 +93,33 @@ describe Work do
   describe "custom methods" do
     # TODO: not sure how I'd test for random?
     describe "spotlight" do
-      before do
-        @work_1 = Work.create(category: "book",
-                    title: "test title",
-                    creator: "test creator",
-                    publication_year: 2020,
-                    description: "test description"
-        )
+      # before do
+      #   @work_1 = Work.create(category: "book",
+      #               title: "test title",
+      #               creator: "test creator",
+      #               publication_year: 2020,
+      #               description: "test description"
+      #   )
+      #
+      #   @work_2 = Work.create(category: "book",
+      #               title: "test title 2 ",
+      #               creator: "test creator 2 ",
+      #               publication_year: 2019,
+      #               description: "test description 2"
+      #   )
+      # end
 
-        @work_2 = Work.create(category: "book",
-                    title: "test title 2 ",
-                    creator: "test creator 2 ",
-                    publication_year: 2019,
-                    description: "test description 2"
-        )
-      end
-
-      it "returns a random work" do
+      it "returns the work with the highest vote" do
+        p works(:cowboy).votes.count
+        expect(works(:cowboy).votes.count).must_equal 3
         # arrange
-        sample_work = Work.spotlight
-        # act
-        # assert
-        expect(sample_work).must_be_instance_of Work
-        expect(sample_work.title).wont_be_nil
+        # top_work = Work.spotlight
+        # highest_voted_work = works(:cowboy)
+        # # act
+        # # assert
+        # expect(top_work).must_be_instance_of Work
+        # expect(top_work.votes.count).must_equal 2
+
       end
     end
 
