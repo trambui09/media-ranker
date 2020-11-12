@@ -110,15 +110,16 @@ describe Work do
       # end
 
       it "returns the work with the highest vote" do
-        p works(:cowboy).votes.count
-        expect(works(:cowboy).votes.count).must_equal 3
+        expect(works(:cowboy).votes.count).must_equal works(:undocumented).votes.count
         # arrange
-        # top_work = Work.spotlight
-        # highest_voted_work = works(:cowboy)
+        # create! because we're making a Vote instance in the work test.
+        Vote.create!(user: users(:miso), work: works(:cowboy))
+        top_work = Work.spotlight
+        highest_voted_work = works(:cowboy)
         # # act
         # # assert
-        # expect(top_work).must_be_instance_of Work
-        # expect(top_work.votes.count).must_equal 2
+        expect(top_work).must_be_instance_of Work
+        expect(top_work).must_equal highest_voted_work
 
       end
     end
