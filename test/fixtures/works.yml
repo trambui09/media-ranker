@@ -1,12 +1,69 @@
 cowboy:
-  title: Be the Cowboy
-  creator: Mitski
-  category: album
+  title: 'Be the Cowboy'
+  creator: 'Mitski'
+  category: 'album'
   publication_year: 2018
-  description: Music for sad girl hours
+  description: 'Music for sad girl hours'
 undocumented:
-  title: The Undocumented Americans
-  creator: Karla Cornejo Villavicencio
-  category: book
+  title: "The Undocumented Americans"
+  creator: 'Karla Cornejo Villavicencio'
+  category: 'book'
   publication_year: 2020
-  description: A great book by a great author
+  description: 'A great book by a great author'
+album_2:
+  title: 'Homecoming'
+  creator: 'Beyonce'
+  category: 'album'
+  publication_year: 2019
+  description: 'From her Coachella performance'
+album_3:
+  title: '25'
+  creator: 'Adele'
+  category: 'album'
+  publication_year: 2015
+  description: '25 years of heartbreak'
+album_4:
+  title: 'Dedicated'
+  creator: 'Carly Rae Jepsen'
+  category: 'album'
+  publication_year: 2019
+  description: 'Music for Tawain trip'
+album_5:
+  title: 'Emotion'
+  creator: 'Carly Rae Jepsen'
+  category: 'album'
+  publication_year: 2015
+  description: 'Queen Carly'
+album_6:
+  title: 'Positions'
+  creator: 'Ariana Grande'
+  category: 'album'
+  publication_year: 2020
+  description: 'Switching my positions for you'
+album_7:
+  title: 'Dangerous Woman'
+  creator: 'Ariana Grande'
+  category: 'album'
+  publication_year: 2016
+  description: 'College soundtrack'
+album_8:
+  title: 'Heard it in a Past Life'
+  creator: 'Maggie Rogers'
+  category: 'album'
+  publication_year: 2019
+  description: 'gem to dance to'
+album_9:
+  title: 'Bury me at Makeout Creek'
+  creator: 'Mitski'
+  category: 'album'
+  publication_year: 2014
+  description: 'old Mitski music'
+album_10:
+  title: 'Retired from Sad, New Career in Business'
+  creator: 'Mitski'
+  category: 'album'
+  publication_year: 2013
+  description: 'old old mitski'
+
+
+
