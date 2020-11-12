@@ -87,8 +87,6 @@ describe Work do
 
       expect(new_work.users.first.username).must_equal @new_user.username
 
-
-
     end
   end
 
@@ -121,8 +119,41 @@ describe Work do
       end
     end
 
-
+    # TODO: how can I test the top ten category?
     describe "top ten" do
+      before do
+        @work_1 = Work.create(category: "book",
+                              title: "test title",
+                              creator: "test creator",
+                              publication_year: 2020,
+                              description: "test description"
+        )
+
+        @work_2 = Work.create(category: "book",
+                              title: "test title 2 ",
+                              creator: "test creator 2 ",
+                              publication_year: 2019,
+                              description: "test description 2"
+        )
+
+        @work_3 = works(:cowboy)
+        @work_4 = works(:undocumented)
+      end
+      it "returns the work in the right category" do
+
+        # act
+        book_top_ten = Work.top_ten("book")
+
+        book_top_ten.each do |book|
+          expect(book).must_be_instance_of Work
+          expect(book.category).must_equal "book"
+        end
+
+      end
+
+      # it "returns by highest votes desc " do
+      #
+      # end
 
     end
 

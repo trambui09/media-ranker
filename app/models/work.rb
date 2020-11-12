@@ -10,10 +10,7 @@ class Work < ApplicationRecord
   #   return works_in_category
   # end
 
-  # need a top 10
-  # need a method for spotlight for a work
   # For top-10 or spotlight, what if there are less than 10 works? What if there are no works?
-  # How are we testing for these custom methods?
   def self.spotlight
     return Work.all.sample
   end
