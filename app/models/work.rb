@@ -23,9 +23,15 @@ class Work < ApplicationRecord
                .reverse[0..9]
   end
 
+  # TODO: this method should be in a view helper?
   def date_voted_on
     vote = Vote.find_by(work_id: self.id )
     return vote.created_at.strftime('%b %d, %Y')
   end
+
+  # def date_voted_on
+  #   vote = Vote.find_by(work_id: self.id )
+  #   return vote.created_at.strftime('%b %d, %Y')
+  # end
 
 end
