@@ -1,70 +1,8 @@
 <h2>List of Works</h2>
-<!--<ul>-->
-  <%# @works.each do |work| %>
-<!--    <li>-->
-      <%#= link_to work.title, work_path(work) %>
-      <%#= work.category %>
-<!--    </li>-->
-  <%# end %>
-<!--</ul>-->
-
 
 <%= render partial: "table", locals: { works: @album_works , category: "Album"} %>
-<!--<h4> Albums </h4>-->
-<!--<table>-->
-<!--  <thead>-->
-<!--  <tr>-->
-<!--    <th>Votes</th>-->
-<!--    <th>Title</th>-->
-<!--    <th>Created By</th>-->
-<!--    <th>Published</th>-->
-<!--    <th>Upvote</th>-->
-<!--  </tr>-->
-<!--  </thead>-->
-
-<!--  <tbody>-->
-  <%# @album_works.each do |work| %>
-<!--    <tr>-->
-<!--      <td><%#= work.votes.count %></td>-->
-<!--      <td><%#= link_to work.title, work_path(work) %></td>-->
-<!--      <td><%#= work.creator %></td>-->
-<!--      <td><%#= work.publication_year %></td>-->
-<!--      <td><button><%#= link_to "Upvote", upvote_work_path(work), method: :post %></button></td>-->
-<!--    </tr>-->
-  <%# end %>
-<!--  </tbody>-->
-<!--</table>-->
-
-
 <%= render partial: "table", locals: { works: @book_works, category: "Book" } %>
-<!--<h4> Books </h4>-->
-<!--<table>-->
-<!--  <thead>-->
-<!--  <tr>-->
-<!--    <th>Votes</th>-->
-<!--    <th>Title</th>-->
-<!--    <th>Created By</th>-->
-<!--    <th>Published</th>-->
-<!--    <th>Upvote</th>-->
-<!--  </tr>-->
-<!--  </thead>-->
-
-<!--  <tbody>-->
-  <%# @book_works.each do |work| %>
-<!--    <tr>-->
-<!--      <td><%#= work.votes.count %></td>-->
-<!--      <td><%#= link_to work.title, work_path(work) %></td>-->
-<!--      <td><%#= work.creator %></td>-->
-<!--      <td><%#= work.publication_year %></td>-->
-<!--      <td><button><%#= link_to "Upvote", upvote_work_path(work), method: :post %></button></td>-->
-<!--    </tr>-->
-  <%# end %>
-<!--  </tbody>-->
-<!--</table>-->
-
-<!--TODO: Add the table for Movies-->
-
 <%= render partial: "table", locals: { works: @movie_works, category: "Movie"  } %>
-<!--<h4> Movies </h4>-->
-<!--how to order works by categories?-->
-<!--Can I make a view partial form to DRY up code -->
+
+<button><%= link_to "View top media", root_path  %></button>
+<button><%= link_to "Add a new work", new_work_path %></button>
