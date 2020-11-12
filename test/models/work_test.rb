@@ -146,7 +146,7 @@ describe Work do
         expect(top_albums.first.votes.count).must_equal 3
 
         expect(top_albums.last.votes.count).must_equal 0
-        
+
       end
 
       it "returns empty array if category has no works " do
