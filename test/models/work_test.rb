@@ -93,22 +93,6 @@ describe Work do
   describe "custom methods" do
     # TODO: not sure how I'd test for random?
     describe "spotlight" do
-      # before do
-      #   @work_1 = Work.create(category: "book",
-      #               title: "test title",
-      #               creator: "test creator",
-      #               publication_year: 2020,
-      #               description: "test description"
-      #   )
-      #
-      #   @work_2 = Work.create(category: "book",
-      #               title: "test title 2 ",
-      #               creator: "test creator 2 ",
-      #               publication_year: 2019,
-      #               description: "test description 2"
-      #   )
-      # end
-
       it "returns the work with the highest vote" do
         expect(works(:cowboy).votes.count).must_equal works(:undocumented).votes.count
         # arrange
@@ -126,7 +110,7 @@ describe Work do
       it "if it's tied, it returns the work most recently voted" do
         expect(works(:cowboy).votes.count).must_equal works(:undocumented).votes.count
 
-        
+
         Vote.create!(user: users(:miso), work: works(:cowboy))
         sleep(1)
         Vote.create!(user: users(:tram), work: works(:undocumented))
@@ -141,39 +125,26 @@ describe Work do
 
     # TODO: how can I test the top ten category?
     describe "top ten" do
-      before do
-        @work_1 = Work.create(category: "book",
-                              title: "test title",
-                              creator: "test creator",
-                              publication_year: 2020,
-                              description: "test description"
-        )
-
-        @work_2 = Work.create(category: "book",
-                              title: "test title 2 ",
-                              creator: "test creator 2 ",
-                              publication_year: 2019,
-                              description: "test description 2"
-        )
-
-        @work_3 = works(:cowboy)
-        @work_4 = works(:undocumented)
-      end
       it "returns the work in the right category" do
 
         # act
-        book_top_ten = Work.top_ten("book")
+        top_albums = Work.top_ten("album")
 
-        book_top_ten.each do |book|
-          expect(book).must_be_instance_of Work
-          expect(book.category).must_equal "book"
+        top_albums.each do |album|
+          expect(album).must_be_instance_of Work
+          expect(album.category).must_equal "album"
         end
+
+        expect(top_albums.count).must_equal 10
 
       end
 
-      # it "returns by highest votes desc " do
-      #
-      # end
+      it "returns empty array if category has no works " do
+        no_movies_top_ten = Work.top_ten("movie")
+
+        expect(no_movies_top_ten).must_equal []
+
+      end
 
     end
 

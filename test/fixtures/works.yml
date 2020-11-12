@@ -10,6 +10,12 @@ undocumented:
   category: book
   publication_year: 2020
   description: A great book by a great author
+book_2:
+  title: The Seven Husbands of Evelyn Hugo
+  creator: Taylor Jenkins Reid
+  category: book
+  publication_year: 2017
+  description: A great book with a twist
 album_2:
   title: Homecoming
   creator: Beyonce
