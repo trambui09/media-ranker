@@ -31,19 +31,30 @@ describe Vote do
   end
   describe "relations" do
     it "can set the work" do
-      vote = Vote.new
-      vote.work = works(:cowboy)
-      expect(vote.work_id).must_equal works(:cowboy).id
+
+      expect(new_vote.work_id).must_equal @work.id
 
     end
 
     # TODO: check if I need the "has a work/user" tests
 
     it "can set the user" do
-      vote = Vote.new
-      vote.user = users(:miso)
-      expect(vote.user_id).must_equal users(:miso).id
 
+      expect(new_vote.user_id).must_equal @user.id
+
+    end
+
+    it "can set the work and user through vote" do
+      work = Work.create!(category: 'movie', title: 'Inception')
+      user = User.create!(username: 'Boop Boop')
+
+      another_vote = Vote.new(user_id: user.id, work_id: work.id)
+
+      another_vote.user_id = user.id
+      another_vote.work_id = work.id
+
+      expect(another_vote.user_id).must_equal user.id
+      expect(another_vote.work_id).must_equal work.id
     end
   end
 end
