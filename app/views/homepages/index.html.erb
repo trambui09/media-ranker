@@ -14,58 +14,7 @@
 </section>
 
 <section>
-  <section>
-    <h2>Top Movies</h2>
-    <% @top_ten_albums = Work.top_ten("movie")  %>
-    <% if @top_ten_albums.empty? %>
-      <p>There's no top ten for this category</p>
-    <% end %>
-    <ul>
-      <% @top_ten_albums.each do |album| %>
-        <li>
-          <h4>
-            <%= link_to album.title, work_path(album) %>
-            <small><%= "By: #{album.creator}" %></small>
-          </h4>
-          <!--          TODO: replace once there's a connection-->
-          <p><%= "#{album.votes.count} votes" %></p>
-        </li>
-      <% end %>
-    </ul>
-
-  </section>
-  <section>
-    <h2>Top Books</h2>
-    <% @top_ten_books = Work.top_ten("book")  %>
-    <ul>
-      <% @top_ten_books.each do |book| %>
-        <li>
-          <h4>
-            <%= link_to book.title, work_path(book) %>
-            <small><%= "By: #{book.creator}" %></small>
-          </h4>
-          <!--          TODO: replace once there's a connection-->
-          <p><%= "#{book.votes.count} votes" %></p>
-        </li>
-      <% end %>
-    </ul>
-
-  </section>
-  <section>
-    <h2>Top Albums</h2>
-    <% @top_ten_albums = Work.top_ten("album")  %>
-    <ul>
-      <% @top_ten_albums.each do |album| %>
-        <li>
-          <h4>
-            <%= link_to album.title, work_path(album) %>
-            <small><%= "By: #{album.creator}" %></small>
-          </h4>
-<!--          TODO: replace once there's a connection-->
-          <p><%= "#{album.votes.count} votes" %></p>
-        </li>
-      <% end %>
-    </ul>
-
-  </section>
+  <%= render partial: 'category', locals: {category: "movie"} %>
+  <%= render partial: 'category', locals: {category: "book"} %>
+  <%= render partial: 'category', locals: {category: "album"} %>
 </section>
