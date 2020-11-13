@@ -26,10 +26,13 @@
 .app-header__header h1 {
   text-align: center;
   margin: 25px auto 40px auto;
+
 }
 .app-header__header h1 a {
   color: #FF5722;
   text-decoration: none;
+  border-right: white solid ;
+  padding-right: 30px;
 }
 
 .app-header__header h1 small {
@@ -62,6 +65,51 @@ nav {
   border-color: #26A69A;
 }
 
+.btn-primary:hover {
+  background-color: #0c5460;
+}
+
+a, h2, h3 {
+  color: #26A69A;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: bold;
+}
+
+body, h1, h2, h3, h4, h5 {
+  font-family: "Gudea", sans-serif;
+}
+
+h2, .h2 {
+  font-size: 2rem;
+}
+
+.spotlight {
+  padding: 0 2rem 2rem 2rem;
+}
+
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+  display: block;
+}
+
+.spotlight__header--prefix {
+  color: #424242;
+}
+
+.spotlight__link-to {
+  border-bottom: 2px solid;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #0f6674;
+}
+
+//.spotlight__description {
+//  color: black;
+//  font-size: small;
+//}
 
 
 

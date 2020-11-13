@@ -1,15 +1,15 @@
 <section class="spotlight">
   <h2>
-    <span>Media Spotlight:</span>
+    <span class="spotlight__header--prefix">Media Spotlight:</span>
     <% @sample_work = Work.spotlight %>
     <% if @sample_work.nil? %>
       <p> There's no works to spotlight</p>
     <% end %>
-    <%= link_to "#{@sample_work.title}", work_path(@sample_work) %>
-    <%= "By: #{@sample_work.creator}" %>
+    <%= link_to "#{@sample_work.title}", work_path(@sample_work), class: "spotlight__link-to" %>
+    <%= "by #{@sample_work.creator}" %>
 <!--    TODO: change after you've connected work to vote-->
-    <p><%= "#{@sample_work.votes.count} Votes - #{@sample_work.description}" %></p>
   </h2>
+  <p class="spotlight__description"><%= "#{@sample_work.votes.count} Votes - #{@sample_work.description}" %></p>
 
 </section>
 
