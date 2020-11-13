@@ -10,40 +10,40 @@
   </head>
 
   <body>
-    <header>
+    <header class="app-header__header">
       <h1>
 <!--        TODO: change to root_path-->
         <%= link_to "Media Ranker", root_path %>
         <small>Ranking the Best of Everything</small>
       </h1>
-      <nav>
-        <ul>
-          <li>
-            <%= link_to "View top media", root_path %>
+      <nav class="app-header__nav">
+        <ul class="nav app-header__site-nav-container">
+          <li class="nav-item app-header__nav_item">
+            <%= link_to "View top media", root_path, class: "nav-link" %>
           </li>
-          <li>
-            <%= link_to "View all media", works_path %>
+          <li class="nav-item app-header__nav_item">
+            <%= link_to "View all media", works_path, class: "nav-link" %>
           </li>
-          <li>
-            <%= link_to "Add a new work", new_work_path %>
+          <li class="nav-item app-header__nav_item">
+            <%= link_to "Add a new work", new_work_path, class: "nav-link" %>
           </li>
-          <li>
-            <%= link_to "View all users", users_path %>
+          <li class="nav-item app-header__nav_item">
+            <%= link_to "View all users", users_path, class: "nav-link" %>
           </li>
         </ul>
 
-        <ul>
+        <ul class="nav app-header__site-nav-container">
 <!--          if there is a session id, present a log out buttong and button to take them to the user show page-->
           <% if session[:user_id] %>
             <% user = User.find_by(id: session[:user_id]) %>
-            <li>
+            <li class="nav-item app-header__nav_item">
               <button class="btn btn-primary"><%= link_to "Logged in as #{user.username}", user_path(user.id) %></button>
             </li>
-            <li>
+            <li class="nav-item app-header__nav_item">
               <button class="btn btn-primary"><%= link_to "Log Out", logout_path, method: :post %></button>
             </li>
           <% else %>
-            <li>
+            <li class="nav-item app-header__nav_item">
               <button class="btn btn-primary"><%= link_to "Log In", login_path %></button>
             </li>
           <% end %>

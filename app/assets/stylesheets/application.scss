@@ -16,3 +16,52 @@
 @import "bootstrap";
 
 @import "**/*";
+
+.app-header__header {
+  background-color: #B2DFDB ;
+  max-width: 100%;
+  margin-bottom: 0.5rem;
+  padding: 2rem 1rem 0.5rem 1rem;
+}
+.app-header__header h1 {
+  text-align: center;
+  margin: 25px auto 40px auto;
+}
+.app-header__header h1 a {
+  color: #FF5722;
+  text-decoration: none;
+}
+
+.app-header__header h1 small {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.app-header__nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.nav-link {
+  color: #00796B;
+}
+
+.btn-primary {
+  background-color: #26A69A;
+  color: white;
+  border-color: #26A69A;
+}
+
+
+
+
