@@ -13,7 +13,6 @@ class UsersController < ApplicationController
     end
   end
 
-
   def login_form
     @user = User.new
   end
@@ -40,32 +39,18 @@ class UsersController < ApplicationController
     flash[:success] = "Succesfully logged out"
     redirect_to root_path
     return
-    # if session[:user_id]
-    #   user = User.find_by(id: session[:user_id])
-    #   unless user.nil?
-    #     session[:user_id].nil?
-    #     flash[:success] = "Goodbye #{user.username}"
-    #   else
-    #     session[:user_id] = nil
-    #     flash[:error] = "Error Unknown User"
-    #   end
-    # else
-    #   flash[:error] = "You must be logged in to logout"
-    # end
-    #
-    # redirect_to root_path
   end
 
-  def current
-    @current_user = User.find_by(id: session[:user_id])
-
-    unless @current_user
-      # TODO: must be logged in to upvote
-      flash[:error] = "You must be logged in to see this page"
-      redirect_to root_path
-      return
-    end
-  end
-
+  # TODO: move finding a logged in user to the application_controller.rb
+  # def current
+  #   @current_user = User.find_by(id: session[:user_id])
+  #
+  #   unless @current_user
+  #     # TODO: must be logged in to upvote
+  #     flash[:error] = "You must be logged in to see this page"
+  #     redirect_to root_path
+  #     return
+  #   end
+  # end
 
 end

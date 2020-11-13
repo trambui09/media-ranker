@@ -23,8 +23,8 @@ describe Vote do
       Vote.create(user_id: @user.id, work_id: @work.id)
 
       expect(new_vote.valid?).must_equal false
-      expect(new_vote.errors.messages).must_include :user_id
-      expect(new_vote.errors.messages[:user_id].include?("has already voted for this work")).must_equal true
+      expect(new_vote.errors.messages).must_include :user
+      expect(new_vote.errors.messages[:user].include?("has already voted for this work")).must_equal true
 
     end
 
