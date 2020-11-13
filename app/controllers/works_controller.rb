@@ -99,12 +99,14 @@ class WorksController < ApplicationController
 
     if vote.save
       flash[:success] = "Successfully upvoted"
-      redirect_to works_path
+      # redirect_to works_path
+      redirect_back fallback_location: '/'
       return
     else
       flash[:error] = "A problem occurred: Could not upvote"
       flash[:error_messages] = vote.errors.messages
-      redirect_to works_path
+      # redirect_to works_path
+      redirect_back fallback_location: '/'
     end
 
   end

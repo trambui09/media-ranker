@@ -85,6 +85,15 @@ h2, .h2 {
   font-size: 2rem;
 }
 
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+div {
+  display: block;
+  width: 100%;
+}
+
 .spotlight {
   padding: 0 2rem 2rem 2rem;
 }
