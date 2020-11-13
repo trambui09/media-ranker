@@ -4,5 +4,5 @@
 <%= render partial: "table", locals: { works: @book_works, category: "Book" } %>
 <%= render partial: "table", locals: { works: @movie_works, category: "Movie"  } %>
 
-<button><%= link_to "View top media", root_path  %></button>
-<button><%= link_to "Add a new work", new_work_path %></button>
+<button class="btn btn-secondary"><%= link_to "View top media", root_path  %></button>
+<button class="btn btn-primary"><%= link_to "Add a new work", new_work_path %></button>
