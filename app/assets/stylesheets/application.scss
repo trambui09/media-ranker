@@ -59,6 +59,19 @@ nav {
   justify-content: space-between;
 }
 
+.app-header__nav_item {
+  margin-right: 15px;
+}
+
+
+ul {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
 .nav-link {
   color: #00796B;
 }
@@ -152,6 +165,15 @@ hr {
 .top-ten__header {
   border-bottom: 2px solid;
   border-bottom-color: #B2DFDB;
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: none;
 }
 
 .table {
