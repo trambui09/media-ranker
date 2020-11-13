@@ -1,21 +1,26 @@
-<% if @work.errors.any? %>
-  <p> A problem occurred: Could not <%= "#{action_name} #{@work.category}" %></p>
-  <ul>
-    <% @work.errors.each do |column, message| %>
-      <li>
-        <strong><%= column.capitalize %></strong> <%= message %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
-
+<div class="alert alert-warning" role="alert">
+  <% if @work.errors.any? %>
+    <p> A problem occurred: Could not <%= "#{action_name} #{@work.category}" %></p>
+    <ul >
+      <% @work.errors.each do |column, message| %>
+        <li>
+          <strong><%= column.capitalize %></strong> <%= message %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
 
 <%= form_with model: @work do |f| %>
   <section>
     <div class="form-group">
       <%= f.label :category %>
 <!--      Might have to change this-->
-      <%= f.select :category, %w[album book movie], class:"form-control" %>
+      <%= f.select :category,
+                   options_for_select(%w[album book movie]),
+                   # this is needed for the format?
+                   {},
+                   {class:"form-control"} %>
     </div>
     <div class="form-group">
       <%= f.label :title %>
