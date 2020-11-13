@@ -1,5 +1,5 @@
 <section class="media-table">
-  <h4><%= category %>s</h4>
+  <h4><%= category.capitalize %>s</h4>
   <table class="table" >
     <thead>
     <tr>
@@ -12,6 +12,7 @@
     </thead>
 
     <tbody>
+    <% works = Work.sorted(category) %>
     <% works.each do |work| %>
       <tr>
         <td><%= work.votes.count %></td>

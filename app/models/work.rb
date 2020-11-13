@@ -38,6 +38,11 @@ class Work < ApplicationRecord
                .reverse[0..9]
   end
 
+  def self.sorted(category)
+    return Work.where(category: category)
+               .sort_by { |category_work| category_work.votes.count }.reverse
+  end
+
   # TODO: this method should be in a view helper?
   def date_voted_on
     vote = Vote.find_by(work_id: self.id )
