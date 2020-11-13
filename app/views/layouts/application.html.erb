@@ -52,13 +52,14 @@
 
     </header>
 
-    <section>
+    <section >
 <!--      remember to update the class name-->
-      <div >
-        <% flash.each do |name, message| %>
-          <%= message %>
-        <% end %>
-      </div>
+<!--      <div >-->
+        <%# flash.each do |name, message| %>
+          <%#= message %>
+        <%# end %>
+<!--      </div>-->
+      <%= flash_messages %>
     </section>
 
     <main>
