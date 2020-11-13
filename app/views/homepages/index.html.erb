@@ -11,9 +11,11 @@
   </h2>
   <p class="spotlight__description"><%= "#{@sample_work.votes.count} Votes - #{@sample_work.description}" %></p>
 
+  <hr class="root__hr">
+
 </section>
 
-<section>
+<section class="top-ten__container">
   <%= render partial: 'category', locals: {category: "movie"} %>
   <%= render partial: 'category', locals: {category: "book"} %>
   <%= render partial: 'category', locals: {category: "album"} %>

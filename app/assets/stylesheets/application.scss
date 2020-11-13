@@ -106,10 +106,43 @@ a:hover {
   color: #0f6674;
 }
 
-//.spotlight__description {
-//  color: black;
-//  font-size: small;
-//}
+.spotlight__description {
+  //color: black;
+  //font-size: small;
+  //border-bottom: 1px solid;
+  //border-bottom-color: lightgrey;
+}
 
+.root__hr {
+  margin: 0px auto 3rem auto;
+  color: #EEEEEE;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+.top-ten__container {
+  display: grid ;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 2rem;
+}
+
+.list-group.top-ten__list {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.top-ten__header {
+  border-bottom: 2px solid;
+  border-bottom-color: #B2DFDB;
+}
+
+.table {
+  width: 100%;
+}
 
 
