@@ -33,6 +33,9 @@ class WorksController < ApplicationController
     else
       # need a flash.now message
       # render :new
+      @work.errors.each do |column, message|
+        flash.now[:error] = "A problem occurred: Could not #{action_name} #{@work.category} #{column}: #{message}"
+      end
       # flash.now[:error] = "Something happened, #{@work.category} was not added :("
       render :new, status: :bad_request
     end
@@ -62,6 +65,9 @@ class WorksController < ApplicationController
       redirect_to work_path(@work)
       return
     else # save failed
+      @work.errors.each do |column, message|
+        flash.now[:error] = "A problem occurred: Could not #{action_name} #{@work.category} #{column}: #{message}"
+      end
       render :edit, status: :bad_request
       return
     end
@@ -95,16 +101,19 @@ class WorksController < ApplicationController
       return
     end
 
-    vote = Vote.new(user_id: user.id, work_id: params[:id])
+    @vote = Vote.new(user_id: user.id, work_id: params[:id])
 
-    if vote.save
+    if @vote.save
       flash[:success] = "Successfully upvoted"
       # redirect_to works_path
       redirect_back fallback_location: '/'
       return
     else
-      flash[:error] = "A problem occurred: Could not upvote"
-      flash[:error_messages] = vote.errors.messages
+      # flash[:error_messages] = vote.errors.messages
+      # flash[:error] = "A problem occurred: Could not upvote"
+      @vote.errors.each do |column, message|
+        flash[:error] = "A problem occurred: Could not upvote\n #{column}: #{message}"
+      end
       # redirect_to works_path
       redirect_back fallback_location: '/'
     end
