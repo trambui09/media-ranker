@@ -1,6 +1,7 @@
 class WorksController < ApplicationController
 
   before_action :find_work, only: [:show, :edit, :update, :destroy]
+  # before_action :require_login, only: [:new, :create, :edit, :update]
 
   def index
     @works = Work.all.order(:category)
