@@ -22,18 +22,19 @@ class ActiveSupport::TestCase
   #
   # Helper method that performs a log-in with either
   # a passed-in user or the first test user
-  def perform_login(user = nil)
-    user ||= User.first
+  def perform_login(username = "Grace Hopper")
 
     login_data = {
         user: {
-            username: user.username,
+            username: username
         }
     }
 
     post login_path, params: login_data
 
     # verify the user ID was saved - if that didn't work, this test is invalid
-    expect(session[:user_id]).must_equal user.id
+    # expect(session[:user_id]).must_equal user.id
+    user = User.find_by(username: username)
+    return user
   end
 end

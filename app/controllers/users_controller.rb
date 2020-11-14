@@ -45,9 +45,9 @@ class UsersController < ApplicationController
 
   # TODO: move finding a logged in user to the application_controller.rb
   def current
-    @current_user = User.find_by(id: session[:user_id])
+    @user = User.find_by(id: session[:user_id])
 
-    unless @current_user
+    if @user.nil?
       # TODO: must be logged in to upvote
       flash[:error] = "You must be logged in to see this page"
       redirect_to root_path
