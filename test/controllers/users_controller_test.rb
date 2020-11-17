@@ -146,6 +146,8 @@ describe UsersController do
     #   OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(mock_auth_hash(user))
     #   get omniauth_callback_path(:github)
     #
+    #   perform_login(user)
+    #
     #   must_redirect_to root_path
     #
     #
