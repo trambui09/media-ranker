@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   # get '/user/'
-  get '/login', to: "users#login_form", as: "login"
-  post '/login', to: "users#login"
+  # omniauth login route
+  get '/auth/github', as: 'github_login'
+
+  # callback route
+  get "/auth/:provider/callback", to: "users#create", as: 'omniauth_callback'
+
+  # TODO: comment the two past login routes out
+  # get '/login', to: "users#login_form", as: "login"
+  # post '/login', to: "users#login"
   # TODO: check if I get the get route for logout, I forgot the method post haha
   post '/logout', to: "users#logout", as: "logout"
   get '/users/current', to: "users#current", as: "current_user"

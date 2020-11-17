@@ -15,6 +15,12 @@ class UsersController < ApplicationController
     end
   end
 
+  # OAuth action
+  def create
+    auth_hash = request.env["omniauth.auth"]
+    raise
+  end
+
   def login_form
     @user = User.new
   end
