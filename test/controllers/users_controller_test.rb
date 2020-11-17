@@ -101,12 +101,15 @@ describe UsersController do
       # Tell OmniAuth to use this user's info when it sees
       # an auth callback from github
 
-      OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(mock_auth_hash(user))
+      # OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(mock_auth_hash(user))
 
       # Send a login request for that user
       # Note that we're using the named path for the callback, as defined
       # in the `as:` clause in `config/routes.rb`
-      get omniauth_callback_path(:github)
+      # get omniauth_callback_path(:github)
+
+      # w/helper method in test_helper
+      perform_login(user)
 
       must_redirect_to root_path
       # Since we can read the session, check that the user ID was set as expected
@@ -120,8 +123,7 @@ describe UsersController do
 
       user = User.new(provider: "github", uid: 99999, name: "test_user", email: "test@user.com")
 
-      OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(mock_auth_hash(user))
-      get omniauth_callback_path(:github)
+      perform_login(user)
 
       must_redirect_to root_path
 
