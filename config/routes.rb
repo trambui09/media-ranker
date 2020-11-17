@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   # post '/login', to: "users#login"
   # TODO: check if I get the get route for logout, I forgot the method post haha
   post '/logout', to: "users#logout", as: "logout"
+  # another logout path in the lesson
+  # delete "/logout", to: "users#destroy", as: "logout"
   get '/users/current', to: "users#current", as: "current_user"
 
   #TODO: rails is throwing an error for not having the get path for logout
