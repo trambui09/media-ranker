@@ -1,10 +1,25 @@
 tram:
-  username: kagometram
+  provider: github
+  uid: 9823
+  email: tram@adadevelopersacademy.org
+  name: tram_bui
 miso:
-  username: miso
+  provider: github
+  uid: 12345
+  email: miso@gmail.com
+  name: miso_bui
 cat:
-  username: cat
+  provider: github
+  uid: 12346
+  email: cat@yahoo.com
+  name: cat_bui
 emma:
-  username: emma
+  provider: github
+  uid: 12347
+  email: emma@hooper.net
+  name: emma_oto
 bella:
-  username: bella
+  provider: github
+  uid: 12348
+  email: bella@adadevelopersacademy.org
+  name: bella_oto

@@ -22,19 +22,45 @@ class ActiveSupport::TestCase
   #
   # Helper method that performs a log-in with either
   # a passed-in user or the first test user
-  def perform_login(username = "Grace Hopper")
+  def perform_login(user = nil)
 
-    login_data = {
-        user: {
-            username: username
+    user ||= User.first
+
+    OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(mock_auth_hash(user))
+    get omniauth_callback_path(:github)
+
+    return user
+
+    # login_data = {
+    #     user: {
+    #         username: username
+    #     }
+    # }
+    #
+    # post login_path, params: login_data
+    #
+    # # verify the user ID was saved - if that didn't work, this test is invalid
+    # # expect(session[:user_id]).must_equal user.id
+    # user = User.find_by(username: username)
+    # return user
+  end
+
+  def setup
+    # Once you have enabled test mode, all requests
+    # to OmniAuth will be short circuited to use the mock authentication hash.
+    # A request to /auth/provider will redirect immediately to /auth/provider/callback.
+    OmniAuth.config.test_mode = true
+  end
+
+  def mock_auth_hash(user)
+    return {
+        provider: user.provider,
+        uid: user.uid,
+        info: {
+            email: user.email,
+            nickname: user.name
         }
     }
-
-    post login_path, params: login_data
-
-    # verify the user ID was saved - if that didn't work, this test is invalid
-    # expect(session[:user_id]).must_equal user.id
-    user = User.find_by(username: username)
-    return user
   end
+
 end
