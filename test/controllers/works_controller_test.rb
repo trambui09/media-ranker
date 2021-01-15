@@ -13,6 +13,8 @@ describe WorksController do
       get works_path
       must_respond_with :success
     end
+
+    #TODO: add another test when there's no works present by destroying the works
   end
 
   describe "show" do
